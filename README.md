@@ -117,29 +117,29 @@ The system comes pre-seeded with an Administrator account.
 ## 📸 Screenshots
 
 ### 1. Login Page
-![alt text](image.png)
+![alt text](./screenshots/image.png)
 ### 1. Admin Dashboard & Analytics
-![alt text](image-1.png)
+![alt text](./screenshots/image-1.png)
 #### Staff management
-![alt text](image-2.png)
+![alt text](./screenshots/image-2.png)
 #### Reports
-![alt text](image-3.png)
+![alt text](./screenshots/image-3.png)
 #### Duty Stations
-![alt text](image-4.png)
+![alt text](./screenshots/image-4.png)
 ### 2. Training Management
 
-![alt text](image-5.png)
+![alt text](./screenshots/image-5.png)
 
 ### 3. Staff Portal & Learning Path
 
-![alt text](image-6.png)
+![alt text](./screenshots/image-6.png)
 ---
 
 ## 📂 Project Structure
 ### Functional Diagram
-![alt text](<Functional Diagram.drawio.png>)
+![alt text](./screenshots/Functional%20Diagram.drawio.png)
 ### UseCase
-![alt text](UseCase.drawio.png)
+![alt text](./screenshots/UseCase.drawio.png)
 
 ## License 
 This project is an assignment and it can be used for educational purppose
