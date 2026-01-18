@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# 🌍 UNEP Skills Portal
+### Enterprise Personnel & Training Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Project Status](https://img.shields.io/badge/Status-Active-success)
+![Stack](https://img.shields.io/badge/Stack-MERN%20%2B%20MySQL-blue)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-## Available Scripts
+## 📖 Overview
 
-In the project directory, you can run:
+The **UNEP Skills Portal** is a full-stack web application designed to simulate a UN-standard personnel management system. It facilitates the management of staff across global duty stations, tracks mandatory training compliance, manages shift rosters, and provides visual analytics for HR administrators.
 
-### `npm start`
+The system features a **Dual-Role Architecture** (Admin vs. Staff) with a clean, professional "UN Blue" user interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Key Features
 
-### `npm test`
+### 🛡️ Admin Portal
+* **Staff Directory:** CRUD operations for global personnel with search functionality.
+* **Duty Station Management:** Manage global locations with active status tracking.
+* **Training Management:** Create courses, assign them to staff, and view assignment history.
+* **Analytics Dashboard:** Visual metric cards and progress bars tracking remote capacity and training compliance.
+* **Auto-Seeding:** The system automatically populates the database with UN-standard courses and settings on startup.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👤 Staff Portal
+* **Personal Dashboard:** At-a-glance view of shift rosters and profile status.
+* **My Trainings:** Track course progress (Assigned → In Progress → Completed) with visual progress bars.
+* **Shift Roster:** View upcoming shifts and request schedule changes.
+* **Profile Management:** Update contact details and current location.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Frontend:** React.js, CSS3 (Custom Enterprise Theme)
+* **Backend:** Node.js, Express.js
+* **Database:** MySQL (Relational Data Management)
+* **Connectivity:** REST API, CORS enabled
+* **Environment:** Configured for Port 5003 (Backend) to avoid macOS AirPlay conflicts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Installation & Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Follow these steps to get the project running locally.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Database Setup
+Ensure you have **MySQL** installed and running.
+1.  Open your MySQL Workbench or Terminal.
+2.  Create a new database:
+    ```sql
+    CREATE DATABASE unep_portal_v2;
+    ```
+3.  *Note: You do NOT need to create tables. The application will auto-generate them.*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Backend Configuration
+1.  Navigate to the backend folder:
+    ```bash
+    cd backend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  **Important:** Open `server.js` and update your MySQL password:
+    ```javascript
+    const db = mysql.createConnection({
+        host: '127.0.0.1',
+        user: 'root',
+        password: 'YOUR_MYSQL_PASSWORD', // <--- Update this
+        database: 'unep_portal_v2',
+        multipleStatements: true
+    });
+    ```
+4.  Start the server:
+    ```bash
+    node server.js
+    ```
+    *Output should confirm: `Connected to UN Enterprise Database on Port 5003`*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Frontend Configuration
+1.  Open a new terminal and navigate to the frontend folder:
+    ```bash
+    cd frontend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the React application:
+    ```bash
+    npm start
+    ```
+    *The app will launch at `http://localhost:3000`*
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔐 Login Credentials
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The system comes pre-seeded with an Administrator account.
 
-### Code Splitting
+| Role | Username | Password | Access Level |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin` | `admin123` | Full System Access |
+| **Staff** | *(Create via Admin)* | *(Create via Admin)* | Limited Personal View |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**To test the Staff Portal:**
+1. Log in as **Admin**.
+2. Go to **Staff Directory** -> **+ Add Staff**.
+3. Create a new user (remember the Index Number).
+4. *Note: For this demo version, you may need to manually add a login entry in the `users` table for the new staff member using SQL, or simply use the Admin view to demonstrate functionality.*
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📸 Screenshots
 
-### Making a Progressive Web App
+### 1. Login Page
+![alt text](image.png)
+### 1. Admin Dashboard & Analytics
+![alt text](image-1.png)
+#### Staff management
+![alt text](image-2.png)
+#### Reports
+![alt text](image-3.png)
+#### Duty Stations
+![alt text](image-4.png)
+### 2. Training Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![alt text](image-5.png)
 
-### Advanced Configuration
+### 3. Staff Portal & Learning Path
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![alt text](image-6.png)
+---
 
-### Deployment
+## 📂 Project Structure
+### Functional Diagram
+![alt text](<Functional Diagram.drawio.png>)
+### UseCase
+![alt text](UseCase.drawio.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License 
+This project is an assignment and it can be used for educational purppose
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+----
+*Developed by Caroline Kausi
